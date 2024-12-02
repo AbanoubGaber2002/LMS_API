@@ -69,6 +69,7 @@ namespace firstAPI.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
         {
+            // Ensure the UserID in the URL matches the one in the body
             if (id != user.UserID)
             {
                 return BadRequest(new { Message = "User ID in the URL does not match the User ID in the body." });
@@ -79,13 +80,14 @@ namespace firstAPI.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Find the existing user
             var existingUser = await _context.Users.FindAsync(id);
             if (existingUser == null)
             {
                 return NotFound(new { Message = $"User with ID {id} not found." });
             }
 
-            // Update only modifiable fields
+            // Update only fields that are modifiable
             existingUser.FirstName = user.FirstName;
             existingUser.LastName = user.LastName;
             existingUser.Email = user.Email;
@@ -103,6 +105,7 @@ namespace firstAPI.Controllers
 
             return NoContent();
         }
+
 
         // DELETE: api/User/5
         [HttpDelete("{id:int}")]

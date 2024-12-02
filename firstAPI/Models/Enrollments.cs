@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace firstAPI.Models
@@ -14,11 +14,10 @@ namespace firstAPI.Models
         [Required]
         public int CourseID { get; set; }
 
-        public DateTime? EnrollmentDate { get; set; }
+        public DateTime? EnrollmentDate { get; set; } = DateTime.UtcNow;
 
         // Navigation Properties
-        public virtual Course Course { get; set; }
-        public virtual User User { get; set; }
+        public virtual Course? Course { get; set; }
+        public virtual  User? User { get; set; }
     }
 }
-*/

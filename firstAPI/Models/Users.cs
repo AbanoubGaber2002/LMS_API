@@ -30,17 +30,17 @@ namespace firstAPI.Models
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
 
-        /* // Navigation Properties
-         public virtual ICollection<Enrollment> Enrollments { get; set; }
-         public virtual ICollection<QuizResult> QuizResults { get; set; }
-         public virtual ICollection<Submission> Submissions { get; set; }
+        // Navigation Properties
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
+       /* public virtual ICollection<QuizResult> QuizResults { get; set; }
+        public virtual ICollection<Submission> Submissions { get; set; }*/
 
-         // Constructor
-         public User()
-         {
-             Enrollments = new HashSet<Enrollment>();
-             QuizResults = new HashSet<QuizResult>();
-             Submissions = new HashSet<Submission>();
-         }*/
+        // Constructor
+        public User()
+        {
+            Enrollments = new HashSet<Enrollment>();
+           /* QuizResults = new HashSet<QuizResult>();
+            Submissions = new HashSet<Submission>();*/
+        }
     }
 }
